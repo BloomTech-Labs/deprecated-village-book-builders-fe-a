@@ -123,3 +123,4 @@ Remember that this project is licensed under the MIT license, and by submitting 
 ## Documentation
 
 See [Backend Documentation](🚫*link to your backend API SWAGGER DOCS here*) for details on the backend of our project.
+https://whimsical.com/join/Uy6Sp7LtpYDPYNKjWbeNbb?invite=zaox4q37
