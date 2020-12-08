@@ -78,7 +78,7 @@ function AddStudent() {
 
             <Form.Item>
               <Button type="primary" htmlType="submit">
-                Submit
+                Next
               </Button>
             </Form.Item>
           </Form>
