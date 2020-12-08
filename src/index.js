@@ -18,6 +18,7 @@ import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
 
 import { LoadingComponent } from './components/common';
+import Nav from './components/common/Nav';
 
 ReactDOM.render(
   <Router>
@@ -41,6 +42,7 @@ function App() {
 
   return (
     <Switch>
+      <Nav />
       <Route path="/login" component={LoginPage} />
 
       <Route path="/landing" component={LandingPage} />
