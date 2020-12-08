@@ -19,6 +19,7 @@ import { ExampleDataViz } from './components/pages/ExampleDataViz';
 
 import { LoadingComponent } from './components/common';
 import Nav from './components/common/Nav';
+import AddStudent from './components/pages/Headmaster/AddStudent';
 
 ReactDOM.render(
   <Router>
@@ -54,9 +55,7 @@ function App() {
           exact
           component={() => <HomePage LoadingComponent={LoadingComponent} />}
         />
-        <Route path="/example-list" component={ExampleListPage} />
-        <Route path="/profile-list" component={ProfileListPage} />
-        <Route path="/datavis" component={ExampleDataViz} />
+        <Route path="/headmaster/student/add" component={AddStudent} />
         <Route component={NotFoundPage} />
       </Switch>
     </>
