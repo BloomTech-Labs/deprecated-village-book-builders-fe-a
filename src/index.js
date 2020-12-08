@@ -41,21 +41,24 @@ function App() {
   };
 
   return (
-    <Switch>
+    <>
       <Nav />
-      <Route path="/login" component={LoginPage} />
+      <Switch>
+        <Route path="/login" component={LoginPage} />
 
-      <Route path="/landing" component={LandingPage} />
-      {/* any of the routes you need secured should be registered as SecureRoutes */}
-      <Route
-        path="/"
-        exact
-        component={() => <HomePage LoadingComponent={LoadingComponent} />}
-      />
-      <Route path="/example-list" component={ExampleListPage} />
-      <Route path="/profile-list" component={ProfileListPage} />
-      <Route path="/datavis" component={ExampleDataViz} />
-      <Route component={NotFoundPage} />
-    </Switch>
+        <Route path="/landing" component={LandingPage} />
+
+        {/* any of the routes you need secured should be registered as SecureRoutes */}
+        <Route
+          path="/"
+          exact
+          component={() => <HomePage LoadingComponent={LoadingComponent} />}
+        />
+        <Route path="/example-list" component={ExampleListPage} />
+        <Route path="/profile-list" component={ProfileListPage} />
+        <Route path="/datavis" component={ExampleDataViz} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </>
   );
 }
