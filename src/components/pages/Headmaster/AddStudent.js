@@ -2,7 +2,8 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import styled from 'styled-components';
 
-import { Form, Input, Button, Checkbox, DatePicker } from 'antd';
+import { Form, Input, Button, Checkbox, DatePicker, Steps, Space } from 'antd';
+const { Step } = Steps;
 
 const StyledDiv = styled.div`
   text-align: center;
@@ -22,6 +23,12 @@ function AddStudent() {
       <Col span={12} offset={6}>
         <StyledDiv>
           <h1>Add Student</h1>
+          <Steps current={0}>
+            <Step title="General Info" />
+            <Step title="Education" />
+            <Step title="Parent/Guardian" />
+          </Steps>
+          <Space> </Space>
           <Form
             name="addStudent"
             initialValues={{ remember: true }}
