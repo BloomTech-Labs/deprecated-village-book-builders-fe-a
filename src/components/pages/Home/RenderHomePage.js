@@ -12,13 +12,7 @@ function RenderHomePage(props) {
           approach components.
         </p>
         <p>
-          <Link to="/profile-list">Profiles Example</Link>
-        </p>
-        <p>
-          <Link to="/example-list">Example List of Items</Link>
-        </p>
-        <p>
-          <Link to="/datavis">Data Visualizations Example</Link>
+          <Link to="/headmaster/student/add">Add Student</Link>
         </p>
       </div>
     </div>
