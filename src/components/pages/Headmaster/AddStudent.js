@@ -7,6 +7,7 @@ import { Form, Steps, Space } from 'antd';
 import StudenGeneralInfo from './StudenGeneralInfo';
 import StudentEducationInfo from './StudentEducationInfo';
 import StudentParentInfo from './StudentParentInfo';
+
 const { Step } = Steps;
 
 const StyledDiv = styled.div`
@@ -16,7 +17,7 @@ const StyledDiv = styled.div`
 
 function AddStudent() {
   const [step, setStep] = useState(0);
-
+  const [error, setError] = useState(null);
   const [formData, setFormData] = useState({});
 
   const onFinish = values => {
@@ -36,7 +37,9 @@ function AddStudent() {
 
     if (step < 2) {
       setStep(step + 1);
-    } else {
+    }
+    if (!error && step === 2) {
+      console.log(error);
       axios.post('http://54.158.134.245/api/students', {
         firstName,
         lastName,
@@ -61,7 +64,7 @@ function AddStudent() {
   };
 
   const onFinishFailed = errorInfo => {
-    return errorInfo;
+    setError(errorInfo);
   };
 
   return (
@@ -72,34 +75,20 @@ function AddStudent() {
           <Steps current={step} onChange={step => setStep(step)}>
             <Step title="General Info" />
             <Step title="Education" />
-            <Step title="Parent/Guardian" />
+            <Step title="Parent" />
           </Steps>
           <Space> </Space>
           <Form
+            layout="vertical"
             name="addStudent"
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             onValuesChange={handleChange}
           >
-            {step === 0 && (
-              <StudenGeneralInfo
-                handleChange={handleChange}
-                formData={formData}
-              />
-            )}
-            {step === 1 && (
-              <StudentEducationInfo
-                handleChange={handleChange}
-                formData={formData}
-              />
-            )}
-            {step === 2 && (
-              <StudentParentInfo
-                handleChange={handleChange}
-                formData={formData}
-              />
-            )}
+            {step === 0 && <StudenGeneralInfo />}
+            {step === 1 && <StudentEducationInfo />}
+            {step === 2 && <StudentParentInfo error={error} />}
           </Form>
         </StyledDiv>
       </Col>
