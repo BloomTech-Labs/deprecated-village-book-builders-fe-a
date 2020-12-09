@@ -5,8 +5,13 @@ function StudentEducationInfo() {
     <div>
       <Form.Item
         label="English Proficiency"
-        name="englishProficiency "
-        rules={[{ required: true, message: 'English Proficiency is required' }]}
+        name="englishProficiency"
+        rules={[
+          {
+            required: true,
+            message: 'English Proficiency is required',
+          },
+        ]}
       >
         <Input />
       </Form.Item>
@@ -14,14 +19,24 @@ function StudentEducationInfo() {
       <Form.Item
         label="School Level"
         name="schoolLevel"
-        rules={[{ required: true, message: 'School Level is required' }]}
+        rules={[
+          {
+            required: true,
+            message: 'School Level is required',
+          },
+        ]}
       >
         <Input />
       </Form.Item>
       <Form.Item
         label="Reading Level"
         name="readingLevel"
-        rules={[{ required: true, message: 'Reading Level is required' }]}
+        rules={[
+          {
+            required: true,
+            message: 'Reading Level is required',
+          },
+        ]}
       >
         <Input />
       </Form.Item>
@@ -29,7 +44,12 @@ function StudentEducationInfo() {
       <Form.Item
         label="Math Level"
         name="mathLevel"
-        rules={[{ required: true, message: 'Math Level is required' }]}
+        rules={[
+          {
+            required: true,
+            message: 'Math Level is required',
+          },
+        ]}
       >
         <Input />
       </Form.Item>

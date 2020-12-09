@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, DatePicker } from 'antd';
-function StudenGeneralInfo() {
+function StudenGeneralInfo({ handleChange, formData }) {
   return (
     <div>
       <Form.Item
@@ -15,6 +15,13 @@ function StudenGeneralInfo() {
         label="Last Name"
         name="lastName"
         rules={[{ required: true, message: 'Student Last Name is required' }]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item
+        label="Student Email"
+        name="studentEmail"
+        rules={[{ required: true, message: 'Student Email is required' }]}
       >
         <Input />
       </Form.Item>

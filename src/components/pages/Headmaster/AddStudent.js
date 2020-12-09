@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col } from 'antd';
 import styled from 'styled-components';
 
 import { Form, Steps, Space } from 'antd';
 import StudenGeneralInfo from './StudenGeneralInfo';
 import StudentEducationInfo from './StudentEducationInfo';
+import StudentParentInfo from './StudentParentInfo';
 const { Step } = Steps;
 
 const StyledDiv = styled.div`
@@ -13,15 +14,33 @@ const StyledDiv = styled.div`
 `;
 
 function AddStudent() {
+  const [step, setStep] = useState(0);
+
+  const [formData, setFormData] = useState({});
+
   const onFinish = values => {
-    console.log('Success:', values);
+    if (step < 2) {
+      setStep(step + 1);
+    } else {
+      //console.log(values);
+    }
+
+    console.log(formData);
+  };
+
+  const handleChange = changedValues => {
+    setFormData({
+      ...formData,
+      ...changedValues,
+    });
+
+    // console.log(formData);
   };
 
   const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
+    return errorInfo;
   };
 
-  const [step, setStep] = useState(0);
   return (
     <Row>
       <Col span={12} offset={6}>
@@ -38,9 +57,26 @@ function AddStudent() {
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
+            onValuesChange={handleChange}
           >
-            {step === 0 && <StudenGeneralInfo />}
-            {step === 1 && <StudentEducationInfo />}
+            {step === 0 && (
+              <StudenGeneralInfo
+                handleChange={handleChange}
+                formData={formData}
+              />
+            )}
+            {step === 1 && (
+              <StudentEducationInfo
+                handleChange={handleChange}
+                formData={formData}
+              />
+            )}
+            {step === 2 && (
+              <StudentParentInfo
+                handleChange={handleChange}
+                formData={formData}
+              />
+            )}
           </Form>
         </StyledDiv>
       </Col>
