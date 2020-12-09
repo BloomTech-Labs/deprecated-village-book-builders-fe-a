@@ -58,8 +58,6 @@ function AddStudent() {
       ...formData,
       ...changedValues,
     });
-
-    console.log(formData);
   };
 
   const onFinishFailed = errorInfo => {

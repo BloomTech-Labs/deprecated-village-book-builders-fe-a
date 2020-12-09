@@ -20,6 +20,7 @@ import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { LoadingComponent } from './components/common';
 import Nav from './components/common/Nav';
 import AddStudent from './components/pages/Headmaster/AddStudent';
+import ViewStudents from './components/pages/Headmaster/ViewStudents';
 
 ReactDOM.render(
   <Router>
@@ -55,7 +56,8 @@ function App() {
           exact
           component={() => <HomePage LoadingComponent={LoadingComponent} />}
         />
-        <Route path="/headmaster/student/add" component={AddStudent} />
+        <Route path="/headmaster/student/" exact component={ViewStudents} />
+        <Route path="/headmaster/student/add" exact component={AddStudent} />
         <Route component={NotFoundPage} />
       </Switch>
     </>
