@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Row, Col } from 'antd';
 import styled from 'styled-components';
 
@@ -19,13 +20,37 @@ function AddStudent() {
   const [formData, setFormData] = useState({});
 
   const onFinish = values => {
+    const {
+      firstName,
+      lastName,
+      studentEmail,
+      primaryLanguage,
+      dob,
+      englishProficiency,
+      schoolLevel,
+      readingLevel,
+      mathLevel,
+      parentName,
+      parentEmail,
+    } = formData;
+
     if (step < 2) {
       setStep(step + 1);
     } else {
-      //console.log(values);
+      axios.post('http://54.158.134.245/api/students', {
+        firstName,
+        lastName,
+        studentEmail,
+        primaryLanguage,
+        dob,
+        englishProficiency,
+        schoolLevel,
+        readingLevel,
+        mathLevel,
+        parentName,
+        parentEmail,
+      });
     }
-
-    console.log(formData);
   };
 
   const handleChange = changedValues => {
@@ -34,7 +59,7 @@ function AddStudent() {
       ...changedValues,
     });
 
-    // console.log(formData);
+    console.log(formData);
   };
 
   const onFinishFailed = errorInfo => {
