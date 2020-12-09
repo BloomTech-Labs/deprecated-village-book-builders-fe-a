@@ -4,14 +4,6 @@ function StudentParentInfo() {
   return (
     <div>
       <Form.Item
-        label="English Proficiency"
-        name="englishProficiency "
-        rules={[{ required: true, message: 'English Proficiency is required' }]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
         label="Parents/Guardian Names"
         name="parentName"
         rules={[{ required: true, message: 'Parents/Guardian Names' }]}
