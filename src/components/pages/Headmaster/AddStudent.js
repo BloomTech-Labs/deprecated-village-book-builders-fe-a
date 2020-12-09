@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col } from 'antd';
 import styled from 'styled-components';
 
@@ -18,12 +18,14 @@ function AddStudent() {
   const onFinishFailed = errorInfo => {
     console.log('Failed:', errorInfo);
   };
+
+  const [step, setStep] = useState(0);
   return (
     <Row>
       <Col span={12} offset={6}>
         <StyledDiv>
           <h1>Add Student</h1>
-          <Steps current={0}>
+          <Steps current={step} onChange={step => setStep(step)}>
             <Step title="General Info" />
             <Step title="Education" />
             <Step title="Parent/Guardian" />
