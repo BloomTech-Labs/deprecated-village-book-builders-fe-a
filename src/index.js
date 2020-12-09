@@ -16,6 +16,7 @@ import { LoginPage } from './components/pages/Login';
 import { HomePage } from './components/pages/Home';
 import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
+import RenderVillageDashboard from './components/pages/Dashboard/RenderVillageDashboard';
 
 import { LoadingComponent } from './components/common';
 import Nav from './components/common/Nav';
@@ -42,9 +43,9 @@ function App() {
 
   return (
     <Switch>
-      <Nav />
+      <Nav />,
+      <RenderVillageDashboard />
       <Route path="/login" component={LoginPage} />
-
       <Route path="/landing" component={LandingPage} />
       {/* any of the routes you need secured should be registered as SecureRoutes */}
       <Route
@@ -56,6 +57,7 @@ function App() {
       <Route path="/profile-list" component={ProfileListPage} />
       <Route path="/datavis" component={ExampleDataViz} />
       <Route component={NotFoundPage} />
+      <RenderVillageDashboard />
     </Switch>
   );
 }

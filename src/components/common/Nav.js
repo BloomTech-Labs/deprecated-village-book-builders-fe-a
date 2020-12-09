@@ -25,6 +25,9 @@ function Nav() {
             <Menu.Item key="user">Your Profile</Menu.Item>
           </Menu.ItemGroup>
         </SubMenu>
+        <Menu.Item key="">
+          <Link to="/">Logout</Link>
+        </Menu.Item>
       </StyledNav>
     </Affix>
   );
