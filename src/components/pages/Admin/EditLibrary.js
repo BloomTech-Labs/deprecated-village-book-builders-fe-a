@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { Row, Col, Form, Input, Button } from 'antd';
 import axios from 'axios';
 
 function EditLibrary() {
   let { id } = useParams();
+  let history = useHistory();
   const [form] = Form.useForm();
   const [error, setError] = useState([]);
-  const [formData, setFormData] = useState({});
-  const { description, library_usage, name, notes } = formData;
-
-  const handleChange = changedValues => {
-    setFormData({
-      ...formData,
-      ...changedValues,
-    });
-  };
 
   const onFinish = values => {
-    console.log(values);
+    axios
+      .put(`http://54.158.134.245/api/library/${id}`, {
+        name: values.name,
+        description: values.description,
+        library_usage: values.library_usage,
+        notes: values.notes,
+      })
+      .catch(err => console.log(error))
+      .finally(() => history.push('/admin/library'));
   };
 
   const onFinishFailed = errorInfo => {
@@ -40,7 +40,7 @@ function EditLibrary() {
       .catch(err => {
         setError(err);
       });
-  }, []);
+  }, [id, form]);
   return (
     <Row>
       <Col span={12} offset={6}>
@@ -54,17 +54,28 @@ function EditLibrary() {
           }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
-          onValuesChange={handleChange}
         >
-          <Form.Item label="Library Name" name="name">
+          <Form.Item
+            label="Library Name"
+            name="name"
+            rules={[{ required: true }]}
+          >
             <Input />
           </Form.Item>
 
-          <Form.Item label="Library Description" name="description">
+          <Form.Item
+            label="Library Description"
+            name="description"
+            rules={[{ required: true }]}
+          >
             <Input />
           </Form.Item>
 
-          <Form.Item label="Library Usage" name="library_usage">
+          <Form.Item
+            label="Library Usage"
+            name="library_usage"
+            rules={[{ required: true }]}
+          >
             <Input />
           </Form.Item>
 

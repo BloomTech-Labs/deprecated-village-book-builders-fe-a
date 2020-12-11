@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import { Table, Tag, Space } from 'antd';
+import { Table, Row, Col } from 'antd';
 const { Column } = Table;
 function Library() {
   const [libraries, setLibraries] = useState([]);
@@ -19,30 +19,36 @@ function Library() {
       });
   }, []);
   return (
-    <div>
-      <h1>Libraries</h1>
+    <Row>
+      <Col span={20} offset={2}>
+        <h1>Libraries</h1>
 
-      <Table
-        dataSource={libraries}
-        onRow={(record, rowIndex) => {
-          return {
-            onClick: event => {
-              history.push(`/admin/library/${record.id}`);
-            },
-          };
-        }}
-      >
-        <Column title="Library Name" dataIndex="name" key="name" />
-        <Column title="Description" dataIndex="description" key="description" />
+        <Table
+          dataSource={libraries}
+          onRow={(record, rowIndex) => {
+            return {
+              onClick: event => {
+                history.push(`/admin/library/${record.id}`);
+              },
+            };
+          }}
+        >
+          <Column title="Library Name" dataIndex="name" key="name" />
+          <Column
+            title="Description"
+            dataIndex="description"
+            key="description"
+          />
 
-        <Column
-          title="Library Usage"
-          dataIndex="library_usage"
-          key="library_usage"
-        />
-        <Column title="Notes" dataIndex="notes" key="notes" />
-      </Table>
-    </div>
+          <Column
+            title="Library Usage"
+            dataIndex="library_usage"
+            key="library_usage"
+          />
+          <Column title="Notes" dataIndex="notes" key="notes" />
+        </Table>
+      </Col>
+    </Row>
   );
 }
 
