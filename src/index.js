@@ -19,8 +19,8 @@ import { ExampleDataViz } from './components/pages/ExampleDataViz';
 
 import { LoadingComponent } from './components/common';
 import Nav from './components/common/Nav';
-import Library from './components/pages/admin/Library';
-import EditLibrary from './components/pages/admin/EditLibrary';
+import Library from './components/pages/Admin/Library';
+import EditLibrary from './components/pages/Admin/EditLibrary';
 
 ReactDOM.render(
   <Router>
