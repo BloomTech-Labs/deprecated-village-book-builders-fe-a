@@ -16,11 +16,12 @@ import { LoginPage } from './components/pages/Login';
 import { HomePage } from './components/pages/Home';
 import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
-
 import { LoadingComponent } from './components/common';
 import Nav from './components/common/Nav';
+
 import Library from './components/pages/Admin/Library';
 import EditLibrary from './components/pages/Admin/EditLibrary';
+import { VillageDashboard } from './components/pages/Dashboard';
 
 ReactDOM.render(
   <Router>
@@ -58,6 +59,7 @@ function App() {
           exact
           component={() => <HomePage LoadingComponent={LoadingComponent} />}
         />
+        <Route path="/dashboard" component={VillageDashboard} />
         <Route path="/example-list" component={ExampleListPage} />
         <Route path="/profile-list" component={ProfileListPage} />
         <Route path="/datavis" component={ExampleDataViz} />
