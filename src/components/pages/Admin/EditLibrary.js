@@ -30,7 +30,7 @@ function EditLibrary() {
   const onFinish = values => {
     setLoading(true);
     axios
-      .put(`http://54.158.134.24/api/library/${id}`, {
+      .put(`http://54.158.134.245/api/library/${id}`, {
         name: values.name,
         description: values.description,
         library_usage: values.library_usage,

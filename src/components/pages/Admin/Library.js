@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import { Table, Row, Col } from 'antd';
+import { Table, Row, Col, Button } from 'antd';
 const { Column } = Table;
+
 function Library() {
   const [libraries, setLibraries] = useState([]);
   const [error, setError] = useState([]);
@@ -47,6 +48,12 @@ function Library() {
           />
           <Column title="Notes" dataIndex="notes" key="notes" />
         </Table>
+        <Button
+          type="primary"
+          onClick={() => history.push('/admin/library/add')}
+        >
+          Add Library
+        </Button>
       </Col>
     </Row>
   );

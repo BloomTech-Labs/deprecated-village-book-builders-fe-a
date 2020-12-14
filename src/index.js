@@ -52,8 +52,8 @@ function App() {
 
         <Route path="/landing" component={LandingPage} />
         <Route path="/admin/library" component={Library} exact />
-        <Route path="/admin/library/:id" component={EditLibrary} exact />
         <Route path="/admin/library/add" component={AddLibrary} exact />
+        <Route path="/admin/library/:id" component={EditLibrary} exact />
 
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <Route
