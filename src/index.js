@@ -16,10 +16,9 @@ import { LoginPage } from './components/pages/Login';
 import { HomePage } from './components/pages/Home';
 import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
-import RenderVillageDashboard from './components/pages/Dashboard/RenderVillageDashboard';
-
 import { LoadingComponent } from './components/common';
 import Nav from './components/common/Nav';
+import { VillageDashboard } from './components/pages/Dashboard';
 
 ReactDOM.render(
   <Router>
@@ -42,22 +41,25 @@ function App() {
   };
 
   return (
-    <Switch>
-      <Nav />,
-      <RenderVillageDashboard />
-      <Route path="/login" component={LoginPage} />
-      <Route path="/landing" component={LandingPage} />
-      {/* any of the routes you need secured should be registered as SecureRoutes */}
-      <Route
-        path="/"
-        exact
-        component={() => <HomePage LoadingComponent={LoadingComponent} />}
-      />
-      <Route path="/example-list" component={ExampleListPage} />
-      <Route path="/profile-list" component={ProfileListPage} />
-      <Route path="/datavis" component={ExampleDataViz} />
-      <Route component={NotFoundPage} />
-      <RenderVillageDashboard />
-    </Switch>
+    <>
+      <Nav />
+      <Switch>
+        <Route path="/login" component={LoginPage} />
+
+        <Route path="/landing" component={LandingPage} />
+
+        {/* any of the routes you need secured should be registered as SecureRoutes */}
+        <Route
+          path="/"
+          exact
+          component={() => <HomePage LoadingComponent={LoadingComponent} />}
+        />
+        <Route path="/dashboard" component={VillageDashboard} />
+        <Route path="/example-list" component={ExampleListPage} />
+        <Route path="/profile-list" component={ProfileListPage} />
+        <Route path="/datavis" component={ExampleDataViz} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </>
   );
 }

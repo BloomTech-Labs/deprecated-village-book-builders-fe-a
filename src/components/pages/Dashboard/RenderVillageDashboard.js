@@ -1,33 +1,37 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Button, Space } from 'antd';
 
 function RenderVillageDashboard() {
   return (
-    <div>
-      <h1>Testing 123</h1>
+    <Space
+      direction="vertical"
+      align="center"
+      type="flex"
+      justify="center"
+      style={{ width: '100%', justifyContent: 'center' }}
+    >
+      <h1>Headmaster Dashboard</h1>
 
-      <Button type="primary" htmlType="submit">
-        Update Profile
+      <Space size="small" align="center" direction="horizontal">
+        <Button type="primary" href="#">
+          Update Profile
+        </Button>
+        <Button type="primary" href="#">
+          Update School
+        </Button>
+      </Space>
+      <Space size="small" align="center" direction="horizontal">
+        <Button type="primary" href="#">
+          Mentees
+        </Button>
+        <Button type="primary" href="#">
+          Mentors
+        </Button>
+      </Space>
+      <Button type="primary" href="#">
+        School Library
       </Button>
-    </div>
+    </Space>
   );
 }
 export default RenderVillageDashboard;
-/*
-<div>
-<div>
-<button>Logout</button>
-</div>
-<div>
-<h1>Headmaster Dashboard</h1>
-</div>
-<div>
-<button>Update Profile</button>
-<button>Update School</button>
-<button>Mentor</button>
-<button>Mentee</button>
-<button>Library</button>
-</div>
-
-</div>
-*/
