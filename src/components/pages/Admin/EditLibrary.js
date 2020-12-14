@@ -1,30 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { Row, Col, Form, Input, Button } from 'antd';
+import { Row, Col, Form, Input, Button, Alert } from 'antd';
 import axios from 'axios';
 
 function EditLibrary() {
   let { id } = useParams();
   let history = useHistory();
   const [form] = Form.useForm();
-  const [error, setError] = useState([]);
-
-  const onFinish = values => {
-    axios
-      .put(`http://54.158.134.245/api/library/${id}`, {
-        name: values.name,
-        description: values.description,
-        library_usage: values.library_usage,
-        notes: values.notes,
-      })
-      .catch(err => console.log(error))
-      .finally(() => history.push('/admin/library'));
-  };
-
-  const onFinishFailed = errorInfo => {
-    console.log(errorInfo);
-    setError(errorInfo);
-  };
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     axios
@@ -38,14 +22,47 @@ function EditLibrary() {
         });
       })
       .catch(err => {
+        setLoading(false);
         setError(err);
       });
   }, [id, form]);
+
+  const onFinish = values => {
+    setLoading(true);
+    axios
+      .put(`http://54.158.134.24/api/library/${id}`, {
+        name: values.name,
+        description: values.description,
+        library_usage: values.library_usage,
+        notes: values.notes,
+      })
+      .then(() => {
+        setLoading(false);
+        history.push('/admin/library');
+      })
+      .catch(err => {
+        setLoading(false);
+        setError(err);
+      });
+  };
+
+  const onFinishFailed = errorInfo => {
+    setError(errorInfo);
+  };
+
   return (
     <Row>
       <Col span={12} offset={6}>
         <h1>Edit Library Info</h1>
-
+        {console.log(error)}
+        {error && (
+          <Alert
+            message="There was an error"
+            description="Your request could not be completed"
+            type="error"
+            closable
+          />
+        )}
         <Form
           form={form}
           layout="vertical"
@@ -88,7 +105,7 @@ function EditLibrary() {
           </Form.Item>
 
           <Form.Item>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" loading={loading}>
               Submit
             </Button>
           </Form.Item>
