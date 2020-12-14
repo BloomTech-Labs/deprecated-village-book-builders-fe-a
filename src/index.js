@@ -18,7 +18,11 @@ import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { LoadingComponent } from './components/common';
 import Nav from './components/common/Nav';
+
+import Library from './components/pages/Admin/Library';
+import EditLibrary from './components/pages/Admin/EditLibrary';
 import { VillageDashboard } from './components/pages/Dashboard';
+import AddLibrary from './components/pages/Admin/AddLibrary';
 
 ReactDOM.render(
   <Router>
@@ -47,6 +51,9 @@ function App() {
         <Route path="/login" component={LoginPage} />
 
         <Route path="/landing" component={LandingPage} />
+        <Route path="/admin/library" component={Library} exact />
+        <Route path="/admin/library/add" component={AddLibrary} exact />
+        <Route path="/admin/library/:id" component={EditLibrary} exact />
 
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <Route
