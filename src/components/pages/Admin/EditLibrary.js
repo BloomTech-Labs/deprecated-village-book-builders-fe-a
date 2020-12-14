@@ -54,7 +54,7 @@ function EditLibrary() {
     <Row>
       <Col span={12} offset={6}>
         <h1>Edit Library Info</h1>
-        {console.log(error)}
+
         {error && (
           <Alert
             message="There was an error"
