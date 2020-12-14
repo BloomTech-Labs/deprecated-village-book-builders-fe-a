@@ -50,11 +50,33 @@ function EditLibrary() {
     setError(errorInfo);
   };
 
+  const handleDelete = () => {
+    setLoading(true);
+    axios
+      .delete(`http://54.158.134.245/api/library/${id}`)
+      .then(() => {
+        setLoading(false);
+        history.push('/admin/library');
+      })
+      .catch(error => {
+        setLoading(false);
+        setError(error);
+      });
+  };
   return (
     <Row>
       <Col span={12} offset={6}>
         <h1>Edit Library Info</h1>
-
+        <Row justify="end">
+          <Button
+            type="primary"
+            htmlType="submit"
+            loading={loading}
+            onClick={handleDelete}
+          >
+            Delete Library
+          </Button>
+        </Row>
         {error && (
           <Alert
             message="There was an error"
@@ -106,7 +128,7 @@ function EditLibrary() {
 
           <Form.Item>
             <Button type="primary" htmlType="submit" loading={loading}>
-              Submit
+              Update Library
             </Button>
           </Form.Item>
         </Form>

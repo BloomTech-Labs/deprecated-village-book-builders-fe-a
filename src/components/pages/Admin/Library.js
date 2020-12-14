@@ -31,6 +31,12 @@ function Library() {
               onClick: event => {
                 history.push(`/admin/library/${record.id}`);
               },
+              onMouseEnter: event => {
+                document.body.style.cursor = 'pointer';
+              },
+              onMouseLeave: event => {
+                document.body.style.cursor = 'default';
+              },
             };
           }}
         >
