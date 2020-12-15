@@ -24,31 +24,36 @@ function Village() {
         return (
           <Row>
             <Col span={12} offset={6} id={v.id}>
-              <h2>Village: {v.id}</h2>
+              <h2>
+                <a href={`/village/${v.id}`}>Village: {v.id}</a>
+              </h2>
+
               <p>
-                <b>Location:</b> {v.GPS_coordinates[0]}, {v.GPS_coordinates[1]}
+                <b>Longitude:</b> {v.longitude}
               </p>
               <p>
-                <b>Education Contact Name:</b> {v.education_contact.name}
+                <b>Longitude:</b> {v.latitude}
               </p>
               <p>
-                <b>Education Contact Email:</b> {v.education_contact.email}
+                <b>Education Contact Name:</b> {v.educationContactName}
               </p>
               <p>
-                <b>Education Contact Phone:</b> {v.education_contact.phone}
+                <b>Education Contact Email:</b> {v.educationContactEmail}
               </p>
               <p>
-                <b>Drive Folder:</b>{' '}
-                <a href={v.images_drive_folder_link}>Google Drive</a>
+                <b>Education Contact Phone:</b> {v.educationContactPhone}
+              </p>
+              <p>
+                <b>Drive Folder:</b> <a href={v.driveLink}>Google Drive</a>
               </p>
               <p>
                 <b>Notes:</b> {v.notes}
               </p>
               <p>
-                <b>Village Contact:</b> {v.village_contact_name}
+                <b>Village Contact:</b> {v.villageContactName}
               </p>
               <p>
-                <b>Village Contact Phone:</b> {v.village_contact_phone}
+                <b>Village Contact Phone:</b> {v.villageContactPhone}
               </p>
             </Col>
           </Row>

@@ -24,6 +24,7 @@ import EditLibrary from './components/pages/Admin/EditLibrary';
 import { VillageDashboard } from './components/pages/Dashboard';
 import AddLibrary from './components/pages/Admin/AddLibrary';
 import Village from './components/pages/Village/Village';
+import EditVillage from './components/pages/Village/EditVillage';
 
 ReactDOM.render(
   <Router>
@@ -56,6 +57,7 @@ function App() {
         <Route path="/admin/library/add" component={AddLibrary} exact />
         <Route path="/admin/library/:id" component={EditLibrary} exact />
         <Route path="/village" component={Village} exact />
+        <Route path="/village/:id" component={EditVillage} exact />
 
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <Route
