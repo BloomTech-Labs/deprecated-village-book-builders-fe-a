@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Row, Col, Form, Input, Button, Alert } from 'antd';
 import axios from 'axios';
 
 function AddLibrary() {
-  let { id } = useParams();
   let history = useHistory();
   const [form] = Form.useForm();
   const [error, setError] = useState(null);

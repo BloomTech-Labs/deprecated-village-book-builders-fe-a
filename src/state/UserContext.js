@@ -2,8 +2,16 @@ import React, { useState, useContext } from 'react';
 
 const UserContext = React.createContext();
 
-export function UserProvider({ children }) {
-  const [user, setUser] = useState();
+export function useUser() {
+  return useContext(UserContext);
+}
 
-  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+export function UserProvider({ children }) {
+  const [userInfo, setUserInfo] = useState({ name: 'test', role: 'admin' });
+
+  return (
+    <UserContext.Provider value={{ userInfo, setUserInfo }}>
+      {children}
+    </UserContext.Provider>
+  );
 }

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import { Table, Row, Col, Button } from 'antd';
+import { Table, Row, Col, Button, Alert } from 'antd';
 const { Column } = Table;
 
 function Library() {
   const [libraries, setLibraries] = useState([]);
-  const [error, setError] = useState([]);
+  const [error, setError] = useState();
   let history = useHistory();
 
   useEffect(() => {
@@ -23,37 +23,45 @@ function Library() {
     <Row>
       <Col span={20} offset={2}>
         <h1>Libraries</h1>
-
-        <Table
-          dataSource={libraries}
-          onRow={(record, rowIndex) => {
-            return {
-              onClick: event => {
-                history.push(`/admin/library/${record.id}`);
-              },
-              onMouseEnter: event => {
-                document.body.style.cursor = 'pointer';
-              },
-              onMouseLeave: event => {
-                document.body.style.cursor = 'default';
-              },
-            };
-          }}
-        >
-          <Column title="Library Name" dataIndex="name" key="name" />
-          <Column
-            title="Description"
-            dataIndex="description"
-            key="description"
+        {error ? (
+          <Alert
+            message="There was an error"
+            description="Your request could not be completed"
+            type="error"
+            closable
           />
+        ) : (
+          <Table
+            dataSource={libraries}
+            onRow={(record, rowIndex) => {
+              return {
+                onClick: event => {
+                  history.push(`/admin/library/${record.id}`);
+                },
+                onMouseEnter: event => {
+                  document.body.style.cursor = 'pointer';
+                },
+                onMouseLeave: event => {
+                  document.body.style.cursor = 'default';
+                },
+              };
+            }}
+          >
+            <Column title="Library Name" dataIndex="name" key="name" />
+            <Column
+              title="Description"
+              dataIndex="description"
+              key="description"
+            />
 
-          <Column
-            title="Library Usage"
-            dataIndex="library_usage"
-            key="library_usage"
-          />
-          <Column title="Notes" dataIndex="notes" key="notes" />
-        </Table>
+            <Column
+              title="Library Usage"
+              dataIndex="library_usage"
+              key="library_usage"
+            />
+            <Column title="Notes" dataIndex="notes" key="notes" />
+          </Table>
+        )}
         <Button
           type="primary"
           onClick={() => history.push('/admin/library/add')}
