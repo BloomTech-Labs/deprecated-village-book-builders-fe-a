@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { Table, Row, Col, Button, Alert } from 'antd';
+
+import { useUser } from '../../../state/UserContext';
 const { Column } = Table;
 
 function Library() {
   const [libraries, setLibraries] = useState([]);
   const [error, setError] = useState();
   let history = useHistory();
-
+  const user = useUser();
   useEffect(() => {
     axios
       .get('http://54.158.134.245/api/library')
@@ -21,6 +23,7 @@ function Library() {
   }, []);
   return (
     <Row>
+      {console.log(user.userInfo)}
       <Col span={20} offset={2}>
         <h1>Libraries</h1>
         {error ? (

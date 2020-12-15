@@ -21,6 +21,7 @@ import AddLibrary from './components/pages/Admin/AddLibrary';
 import Login from './components/pages/Login/Login';
 
 import { UserProvider } from './state/UserContext';
+import RenderHomePage from './components/pages/Home/RenderHomePage';
 ReactDOM.render(
   <Router>
     <React.StrictMode>
@@ -49,7 +50,7 @@ function App() {
             path="/"
             exact
             component={() => (
-              <VillageDashboard LoadingComponent={LoadingComponent} />
+              <RenderHomePage LoadingComponent={LoadingComponent} />
             )}
           />
 
