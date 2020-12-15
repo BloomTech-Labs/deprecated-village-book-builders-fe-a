@@ -13,7 +13,7 @@ function RenderVillageDashboard() {
     <Row>
       <Col xs={{ span: 12, offset: 6 }}>
         <h1>Headmaster Dashboard</h1>
-        <Button type="primary" href="#" block>
+        {/* <Button type="primary" href="#" block>
           Update Profile
         </Button>
         <Space>{''} </Space>
@@ -27,10 +27,14 @@ function RenderVillageDashboard() {
         <Space>{''} </Space>
         <Button type="primary" href="" block>
           Mentors
-        </Button>
+        </Button> */}
         <Space>{''} </Space>
         <Button type="primary" href="/admin/library" block>
           School Library
+        </Button>
+        <Space>{''} </Space>
+        <Button type="primary" href="/village" block>
+          Village Info
         </Button>
       </Col>
     </Row>
