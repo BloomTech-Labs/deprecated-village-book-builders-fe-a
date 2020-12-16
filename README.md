@@ -37,19 +37,19 @@ The production counterpart for our project already has a backend. On subsequent 
 
 Our live API: http://54.158.134.245/api
 
-The library used for our Mock data is (https://www.mockaroo.com/)
+The library used for our Mock data is [Mockaroo](https://www.mockaroo.com/)
 
-# Installation Instructions
+Library used for the Mock API is [JSON Web Server](https://github.com/typicode/json-server)
 
-🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
+## Tech Stack for Frontend
 
-## Other Scripts
+- React
+- React Router Dom
+- Axios
+- Ant Design
+- Context API
 
-🚫replace these examples with your own
-
-    * build - creates a build of the application
-    * start - starts the production server after a build is created
-    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
+All dependencies installed using NPM
 
 # Contributing
 
@@ -82,8 +82,3 @@ Remember that this project is licensed under the MIT license, and by submitting 
 - Ensure that your code conforms to our existing code conventions and test coverage.
 - Include the relevant issue number, if applicable.
 - You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
-
-## Documentation
-
-See [Backend Documentation](🚫*link to your backend API SWAGGER DOCS here*) for details on the backend of our project.
-https://whimsical.com/join/Uy6Sp7LtpYDPYNKjWbeNbb?invite=zaox4q37
