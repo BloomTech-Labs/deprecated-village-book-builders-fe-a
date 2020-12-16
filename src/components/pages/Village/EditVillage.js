@@ -12,7 +12,7 @@ function EditVillage() {
 
   useEffect(() => {
     axios
-      .get(`http://54.158.134.245/api/village/${id}`)
+      .get(`https://54.158.134.245/api/village/${id}`)
       .then(res => {
         form.setFieldsValue({
           longitude: res.data.longitude,
@@ -35,7 +35,7 @@ function EditVillage() {
   const onFinish = values => {
     setLoading(true);
     axios
-      .put(`http://54.158.134.245/api/village/${id}`, {
+      .put(`https://54.158.134.245/api/village/${id}`, {
         longitude: values.longitude,
         latitude: values.latitude,
         educationContactName: values.educationContactName,

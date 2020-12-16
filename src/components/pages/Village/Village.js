@@ -6,7 +6,7 @@ function Village() {
   const [error, setError] = useState(null);
   useEffect(() => {
     axios
-      .get('http://54.158.134.245/api/village')
+      .get('https://54.158.134.245/api/village')
       .then(res => setVillage(res.data))
       .catch(err => setError(err));
   }, []);
