@@ -20,12 +20,13 @@ import { VillageDashboard } from './components/pages/Dashboard';
 import AddLibrary from './components/pages/Admin/AddLibrary';
 
 import Login from './components/pages/Login/Login';
-
+import PrivateRoute from './components/common/PrivateRoute';
 import Village from './components/pages/Village/Village';
 import EditVillage from './components/pages/Village/EditVillage';
 
 import { UserProvider } from './state/UserContext';
 import RenderHomePage from './components/pages/Home/RenderHomePage';
+import Logout from './components/pages/Logout/Logout';
 ReactDOM.render(
   <Router>
     <React.StrictMode>
@@ -44,19 +45,28 @@ function App() {
         <Nav />
         <Switch>
           <Route path="/login" component={Login} />
+          <Route path="/logout" component={Logout} />
 
           <Route path="/landing" component={LandingPage} />
-          <Route path="/admin/library" component={Library} exact />
-          <Route path="/admin/library/add" component={AddLibrary} exact />
-          <Route path="/admin/library/:id" component={EditLibrary} exact />
-          <Route path="/village" component={Village} exact />
-          <Route path="/village/:id" component={EditVillage} exact />
+
+          <PrivateRoute path="/admin/library" component={Library} exact />
+          <PrivateRoute
+            path="/admin/library/add"
+            component={AddLibrary}
+            exact
+          />
+          <PrivateRoute
+            path="/admin/library/:id"
+            component={EditLibrary}
+            exact
+          />
+          <PrivateRoute path="/village" component={Village} exact />
+          <PrivateRoute path="/village/:id" component={EditVillage} exact />
+
           <Route
             path="/"
             exact
-            component={() => (
-              <RenderHomePage LoadingComponent={LoadingComponent} />
-            )}
+            component={() => <Login LoadingComponent={LoadingComponent} />}
           />
           <Route path="/dashboard" component={VillageDashboard} />
           <Route component={NotFoundPage} />

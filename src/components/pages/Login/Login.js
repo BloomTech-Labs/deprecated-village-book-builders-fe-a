@@ -17,11 +17,14 @@ function Login() {
       .get(`https://54.158.134.245/api/auth/?username=${values.username}`, {})
       .then(res => {
         setLoading(false);
-        user.setUserInfo(res.data[0]);
+        user.setUserInfo({
+          username: res.data[0].username,
+          role: res.data[0].role,
+        });
         if (res.data[0].role === 'admin') {
           history.push('/admin/library');
-        } else {
-          history.push('/headmaster/dashboard');
+        } else if (res.data[0].role === 'headmaster') {
+          history.push('/dashboard');
         }
       })
       .catch(err => {

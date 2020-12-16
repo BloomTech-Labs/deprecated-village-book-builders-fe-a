@@ -8,19 +8,21 @@ export function useUser() {
 
 export function UserProvider({ children }) {
   const [userInfo, setUserInfo] = useState({
-    username: localStorage.getItem('user') || '',
-    role: localStorage.getItem('user') || '',
+    username: localStorage.getItem('username') || null,
+    role: localStorage.getItem('role') || null,
   });
 
   useEffect(() => {
-    if (localStorage.getItem('username').length > 0) {
+    if (
+      !localStorage.getItem('username') === null ||
+      !localStorage.getItem('role') === null
+    ) {
       return;
     } else {
-      localStorage.setItem('username', JSON.stringify(userInfo.username));
-      localStorage.setItem('role', JSON.stringify(userInfo.role));
+      localStorage.setItem('username', userInfo.username);
+      localStorage.setItem('role', userInfo.role);
     }
   }, [userInfo]);
-
   return (
     <UserContext.Provider value={{ userInfo, setUserInfo }}>
       {children}
