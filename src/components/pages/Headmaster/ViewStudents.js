@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Table, Tag, Space } from 'antd';
+import { Table, Tag, Space, Button } from 'antd';
 const { Column, ColumnGroup } = Table;
 function ViewStudents() {
   const [students, setStudents] = useState([]);
@@ -14,6 +14,9 @@ function ViewStudents() {
   return (
     <div>
       <h1>Student List</h1>
+      <Button type="primary" htmlType="submit">
+        Add Student
+      </Button>
       <Table dataSource={students}>
         <Column title="First Name" dataIndex="firstName" key="firstName" />
         <Column title="Last Name" dataIndex="lastName" key="lastName" />

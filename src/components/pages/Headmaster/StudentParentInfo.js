@@ -3,14 +3,6 @@ import { Form, Input, Button } from 'antd';
 import { useHistory } from 'react-router-dom';
 
 function StudentParentInfo({ error }) {
-  let history = useHistory();
-  const handleClick = () => {
-    if (error != null) {
-      console.log(error);
-    } else {
-      history.push('/');
-    }
-  };
   return (
     <div>
       <Form.Item
@@ -37,7 +29,7 @@ function StudentParentInfo({ error }) {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" onSubmit={handleClick}>
+        <Button type="primary" htmlType="submit">
           Submit
         </Button>
       </Form.Item>

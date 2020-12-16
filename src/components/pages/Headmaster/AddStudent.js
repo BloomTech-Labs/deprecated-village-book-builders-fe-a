@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Row, Col } from 'antd';
 import styled from 'styled-components';
-
+import { useHistory } from 'react-router-dom';
 import { Form, Steps, Space } from 'antd';
 import StudenGeneralInfo from './StudenGeneralInfo';
 import StudentEducationInfo from './StudentEducationInfo';
@@ -19,7 +19,7 @@ function AddStudent() {
   const [step, setStep] = useState(0);
   const [error, setError] = useState(null);
   const [formData, setFormData] = useState({});
-
+  const history = useHistory();
   const onFinish = values => {
     const {
       firstName,
@@ -38,21 +38,22 @@ function AddStudent() {
     if (step < 2) {
       setStep(step + 1);
     }
-    if (!error && step === 2) {
-      console.log(error);
-      axios.post('http://54.158.134.245/api/students', {
-        firstName,
-        lastName,
-        studentEmail,
-        primaryLanguage,
-        dob,
-        englishProficiency,
-        schoolLevel,
-        readingLevel,
-        mathLevel,
-        parentName,
-        parentEmail,
-      });
+    if (step === 2) {
+      axios
+        .post('http://54.158.134.245/api/students', {
+          firstName,
+          lastName,
+          studentEmail,
+          primaryLanguage,
+          dob,
+          englishProficiency,
+          schoolLevel,
+          readingLevel,
+          mathLevel,
+          parentName,
+          parentEmail,
+        })
+        .then(history.push('/dashboard'));
     }
   };
 
@@ -88,7 +89,7 @@ function AddStudent() {
           >
             {step === 0 && <StudenGeneralInfo />}
             {step === 1 && <StudentEducationInfo />}
-            {step === 2 && <StudentParentInfo error={error} />}
+            {step === 2 && <StudentParentInfo />}
           </Form>
         </StyledDiv>
       </Col>
