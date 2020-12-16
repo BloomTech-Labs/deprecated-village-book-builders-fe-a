@@ -18,7 +18,11 @@ import Library from './components/pages/Admin/Library';
 import EditLibrary from './components/pages/Admin/EditLibrary';
 import { VillageDashboard } from './components/pages/Dashboard';
 import AddLibrary from './components/pages/Admin/AddLibrary';
+
 import Login from './components/pages/Login/Login';
+
+import Village from './components/pages/Village/Village';
+import EditVillage from './components/pages/Village/EditVillage';
 
 import { UserProvider } from './state/UserContext';
 import RenderHomePage from './components/pages/Home/RenderHomePage';
@@ -45,7 +49,8 @@ function App() {
           <Route path="/admin/library" component={Library} exact />
           <Route path="/admin/library/add" component={AddLibrary} exact />
           <Route path="/admin/library/:id" component={EditLibrary} exact />
-
+          <Route path="/village" component={Village} exact />
+          <Route path="/village/:id" component={EditVillage} exact />
           <Route
             path="/"
             exact
@@ -53,7 +58,7 @@ function App() {
               <RenderHomePage LoadingComponent={LoadingComponent} />
             )}
           />
-
+          <Route path="/dashboard" component={VillageDashboard} />
           <Route component={NotFoundPage} />
         </Switch>
       </UserProvider>

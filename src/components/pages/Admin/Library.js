@@ -13,7 +13,7 @@ function Library() {
   const user = useUser();
   useEffect(() => {
     axios
-      .get('http://54.158.134.245/api/library')
+      .get('https://54.158.134.245/api/library')
       .then(res => {
         setLibraries(res.data);
       })

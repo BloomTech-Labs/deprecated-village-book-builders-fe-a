@@ -12,7 +12,7 @@ function AddLibrary() {
   const onFinish = values => {
     setLoading(true);
     axios
-      .post(`http://54.158.134.245/api/library/`, {
+      .post(`https://54.158.134.245/api/library/`, {
         name: values.name,
         description: values.description,
         library_usage: values.library_usage,
