@@ -19,6 +19,7 @@ import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { LoadingComponent } from './components/common';
 import Nav from './components/common/Nav';
 import { VillageDashboard } from './components/pages/Dashboard';
+import { EditHeadmasterProfile } from './components/pages/HeadmasterProfile/index';
 
 ReactDOM.render(
   <Router>
@@ -54,6 +55,7 @@ function App() {
           exact
           component={() => <HomePage LoadingComponent={LoadingComponent} />}
         />
+        <Route path="/edit-headmaster" component={EditHeadmasterProfile} />
         <Route path="/dashboard" component={VillageDashboard} />
         <Route path="/example-list" component={ExampleListPage} />
         <Route path="/profile-list" component={ProfileListPage} />
