@@ -1,6 +1,6 @@
 # Village Book Builders
 
-You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
+You can find the deployed project at [Village Book Builders - A](https://main.d12m7k1pfm1997.amplifyapp.com/village).
 
 ## Contributors
 
@@ -23,43 +23,21 @@ You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste
 
 ### Key Features
 
-- feature one
-- feature two
-- feature three
-- feature four
-- feature five
+- Ant Design
+- Various User Profiles within one consolidated dashboard
+- Drop down menus for User Profiles
+- CRUD ops (read, write functionality) for various user profiles
+- Mobile first design/mobile responsiveness
 
-#### Front end deployed to `🚫insert service here`
+#### Our Backend Story:
 
-#### [Back end](🚫link to back end repo here) built using:
-
-#### 🚫 back end framework goes here
-
-- point one
-- point two
-- point three
-
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
+The production counterpart for our project already has a backend. On subsequent releases, teams will be working towards integrating that already existing backend. In the mean time, we put together a mock API using JSON web server that simulates the backend we would be needing the future. 
 
 # APIs
 
-## Authentication API here
+Our live API: http://54.158.134.245/api
 
-🚫Replace text below with a description of the API
-
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
-
-## Payment API here
-
-🚫Replace text below with a description of the API
-
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
-
-## Misc API here
-
-🚫Replace text below with a description of the API
-
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
+The library used for our Mock data is (https://www.mockaroo.com/)
 
 # Installation Instructions
 
