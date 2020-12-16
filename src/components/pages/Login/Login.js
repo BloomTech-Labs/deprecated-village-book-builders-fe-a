@@ -5,7 +5,7 @@ import axios from 'axios';
 import Password from 'antd/lib/input/Password';
 import { useUser } from '../../../state/UserContext';
 function Login() {
-  const userInfo = useUser();
+  const user = useUser();
   let history = useHistory();
   const [form] = Form.useForm();
   const [error, setError] = useState(null);
@@ -14,12 +14,14 @@ function Login() {
   const onFinish = values => {
     setLoading(true);
     axios
-      .get(`http://54.158.134.245/api/auth/?username=${values.username}`, {})
+      .get(`https://54.158.134.245/api/auth/?username=${values.username}`, {})
       .then(res => {
         setLoading(false);
-        if (res.data.length === 1) {
-          userInfo.setUserInfo(res.data[0]);
+        user.setUserInfo(res.data[0]);
+        if (res.data[0].role === 'admin') {
           history.push('/admin/library');
+        } else {
+          history.push('/headmaster/dashboard');
         }
       })
       .catch(err => {
