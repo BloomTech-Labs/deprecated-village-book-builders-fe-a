@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Row, Col, Form, Input, Button, Alert } from 'antd';
 import axios from 'axios';
-
-function AddLibrary() {
+import Password from 'antd/lib/input/Password';
+import { useUser } from '../../../state/UserContext';
+function Login() {
+  const user = useUser();
   let history = useHistory();
   const [form] = Form.useForm();
   const [error, setError] = useState(null);
@@ -12,15 +14,19 @@ function AddLibrary() {
   const onFinish = values => {
     setLoading(true);
     axios
-      .post(`https://54.158.134.245/api/library/`, {
-        name: values.name,
-        description: values.description,
-        library_usage: values.library_usage,
-        notes: values.notes,
-      })
-      .then(() => {
+      .get(`https://54.158.134.245/api/auth/?username=${values.username}`, {})
+      .then(res => {
         setLoading(false);
-        history.push('/admin/library');
+        user.setUserInfo({
+          username: res.data[0].username,
+          role: res.data[0].role,
+          id: res.data[0].id,
+        });
+        if (res.data[0].role === 'admin') {
+          history.push('/admin/library');
+        } else if (res.data[0].role === 'headmaster') {
+          history.push('/dashboard');
+        }
       })
       .catch(err => {
         setLoading(false);
@@ -34,8 +40,8 @@ function AddLibrary() {
 
   return (
     <Row>
-      <Col span={12} offset={6}>
-        <h1>Add A Library</h1>
+      <Col span={10} offset={8}>
+        <h1>Village Book Builders Login</h1>
 
         {error && (
           <Alert
@@ -55,40 +61,24 @@ function AddLibrary() {
           onFinishFailed={onFinishFailed}
         >
           <Form.Item
-            label="Library Name"
-            name="name"
+            label="Username"
+            name="username"
             rules={[{ required: true }]}
           >
             <Input />
           </Form.Item>
 
           <Form.Item
-            label="Library Description"
-            name="description"
+            label="Password"
+            name="password"
             rules={[{ required: true }]}
           >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            label="Library Usage"
-            name="library_usage"
-            rules={[{ required: true }]}
-          >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            label="Library Notes"
-            name="notes"
-            rules={[{ required: true }]}
-          >
-            <Input />
+            <Password />
           </Form.Item>
 
           <Form.Item>
             <Button type="primary" htmlType="submit" loading={loading}>
-              Submit
+              Login
             </Button>
           </Form.Item>
         </Form>
@@ -97,4 +87,4 @@ function AddLibrary() {
   );
 }
 
-export default AddLibrary;
+export default Login;
