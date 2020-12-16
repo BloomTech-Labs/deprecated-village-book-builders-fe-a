@@ -21,20 +21,22 @@ function RenderVillageDashboard() {
           Update School
         </Button>
         <Space>{''} </Space>
-        <Button type="primary" href="#" block>
-          Mentees
-        </Button>
+
         <Space>{''} </Space>
         <Button type="primary" href="" block>
           Mentors
         </Button> */}
-        <Space>{''} </Space>
+        <Space>{''}</Space>
         <Button type="primary" href="/admin/library" block>
           School Library
         </Button>
         <Space>{''} </Space>
         <Button type="primary" href="/village" block>
           Village Info
+        </Button>
+        <Space>{''} </Space>
+        <Button type="primary" href="/headmaster/student/" block>
+          Mentees / Students
         </Button>
       </Col>
     </Row>

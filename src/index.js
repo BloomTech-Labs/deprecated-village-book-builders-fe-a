@@ -10,7 +10,7 @@ import {
 import 'antd/dist/antd.less';
 
 import { NotFoundPage } from './components/pages/NotFound';
-import { LandingPage } from './components/pages/Landing';
+
 import { LoadingComponent } from './components/common';
 import Nav from './components/common/Nav';
 import AddStudent from './components/pages/Headmaster/AddStudent';
@@ -27,8 +27,9 @@ import Village from './components/pages/Village/Village';
 import EditVillage from './components/pages/Village/EditVillage';
 
 import { UserProvider } from './state/UserContext';
-import RenderHomePage from './components/pages/Home/RenderHomePage';
+
 import Logout from './components/pages/Logout/Logout';
+import RenderVillageDashboard from './components/pages/Dashboard/RenderVillageDashboard';
 ReactDOM.render(
   <Router>
     <React.StrictMode>
@@ -49,8 +50,6 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Logout} />
 
-          <Route path="/landing" component={LandingPage} />
-
           <PrivateRoute path="/admin/library" component={Library} exact />
           <PrivateRoute
             path="/admin/library/add"
@@ -70,16 +69,18 @@ function App() {
             exact
             component={() => <Login LoadingComponent={LoadingComponent} />}
           />
-          <Route path="/headmaster/student/" exact component={ViewStudents} />
-          <Route path="/headmaster/student/add" exact component={AddStudent} />
-          <Route component={NotFoundPage} />
-
-          <Route
-            path="/"
+          <PrivateRoute
+            path="/headmaster/student/"
             exact
-            component={() => <Login LoadingComponent={LoadingComponent} />}
+            component={ViewStudents}
           />
-          <Route path="/dashboard" component={VillageDashboard} />
+          <PrivateRoute
+            path="/headmaster/student/add"
+            exact
+            component={AddStudent}
+          />
+
+          <PrivateRoute path="/dashboard" component={VillageDashboard} />
           <Route component={NotFoundPage} />
         </Switch>
       </UserProvider>
