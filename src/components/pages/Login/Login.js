@@ -20,6 +20,7 @@ function Login() {
         user.setUserInfo({
           username: res.data[0].username,
           role: res.data[0].role,
+          id: res.data[0].id,
         });
         if (res.data[0].role === 'admin') {
           history.push('/admin/library');

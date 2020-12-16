@@ -13,7 +13,7 @@ const StyledNav = styled(Menu)`
 
 function Nav() {
   const user = useUser();
-  console.log(user.userInfo);
+
   return (
     <Affix offsetTop="0">
       <StyledNav mode="horizontal">

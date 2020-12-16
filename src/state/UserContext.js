@@ -21,6 +21,7 @@ export function UserProvider({ children }) {
     } else {
       localStorage.setItem('username', userInfo.username);
       localStorage.setItem('role', userInfo.role);
+      localStorage.setItem('id', userInfo.id);
     }
   }, [userInfo]);
   return (
