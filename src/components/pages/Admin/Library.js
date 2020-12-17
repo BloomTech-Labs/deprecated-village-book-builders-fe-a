@@ -10,7 +10,7 @@ function Library() {
   const [libraries, setLibraries] = useState([]);
   const [error, setError] = useState();
   let history = useHistory();
-  const user = useUser();
+
   useEffect(() => {
     axios
       .get('https://54.158.134.245/api/library')

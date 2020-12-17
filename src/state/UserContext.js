@@ -10,6 +10,7 @@ export function UserProvider({ children }) {
   const [userInfo, setUserInfo] = useState({
     username: localStorage.getItem('username') || null,
     role: localStorage.getItem('role') || null,
+    id: localStorage.getItem('id') || null,
   });
 
   useEffect(() => {
