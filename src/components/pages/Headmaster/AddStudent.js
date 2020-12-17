@@ -40,7 +40,7 @@ function AddStudent() {
     }
     if (step === 2) {
       axios
-        .post('http://54.158.134.245/api/students', {
+        .post('https://54.158.134.245/api/students', {
           firstName,
           lastName,
           studentEmail,
