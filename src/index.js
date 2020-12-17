@@ -25,7 +25,7 @@ import Login from './components/pages/Login/Login';
 import PrivateRoute from './components/common/PrivateRoute';
 import Village from './components/pages/Village/Village';
 import EditVillage from './components/pages/Village/EditVillage';
-
+import { EditHeadmasterProfile } from './components/pages/HeadmasterProfile';
 import { UserProvider } from './state/UserContext';
 
 import Logout from './components/pages/Logout/Logout';
@@ -60,6 +60,11 @@ function App() {
           <PrivateRoute
             path="/admin/library/:id"
             component={EditLibrary}
+            exact
+          />
+          <PrivateRoute
+            path="/edit-headmaster"
+            component={EditHeadmasterProfile}
             exact
           />
           <PrivateRoute path="/village" component={Village} exact />
