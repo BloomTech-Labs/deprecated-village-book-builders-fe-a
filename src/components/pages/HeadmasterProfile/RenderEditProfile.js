@@ -1,33 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { FromInput, FormButton } from '../../common';
 import { Form, Input, Button, Space, Alert } from 'antd';
-import CountryPhoneInput from 'antd-country-phone-input';
 import axios from 'axios';
+import { useUser } from '../../../state/UserContext';
 
 function RenderEditProfile() {
-  let { id } = useParams();
+  const user = useUser();
+  let id = user.userInfo.id;
   let history = useHistory();
   const [form] = Form.useForm();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  id = 0;
-
   useEffect(() => {
-    axios.get(`https://54.158.134.245/api/headmaster/`).then(res => {
+    axios.get(`https://54.158.134.245/api/headmaster/${id}`).then(res => {
       console.log(res.data[0]);
       form.setFieldsValue({
-        first_name: res.data[0].first_name,
-        second_name: res.data[0].second_name,
-        email: res.data[0].email,
-        phone_number: res.data[0].phone_number,
-        bio: res.data[0].bio,
-        address: res.data[0].address,
-        goals: res.data[0].goals_personal,
+        first_name: res.data.first_name,
+        second_name: res.data.second_name,
+        email: res.data.email,
+        phone_number: res.data.phone_number,
+        bio: res.data.bio,
+        address: res.data.address,
+        goals: res.data.goals_personal,
       });
     });
-  }, [id, form]);
+  }, []);
+
+  console.log(user);
 
   const onFinish = values => {
     setLoading(true);
@@ -43,7 +43,7 @@ function RenderEditProfile() {
       })
       .then(() => {
         setLoading(false);
-        history.push('/headmaster');
+        history.push('/edit-headmaster');
       })
       .catch(err => {
         setLoading(false);
