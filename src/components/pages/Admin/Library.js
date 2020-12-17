@@ -10,7 +10,7 @@ function Library() {
   const [libraries, setLibraries] = useState([]);
   const [error, setError] = useState();
   let history = useHistory();
-  const user = useUser();
+
   useEffect(() => {
     axios
       .get('https://54.158.134.245/api/library')
@@ -23,7 +23,6 @@ function Library() {
   }, []);
   return (
     <Row>
-      {console.log(user.userInfo)}
       <Col span={20} offset={2}>
         <h1>Libraries</h1>
         {error ? (

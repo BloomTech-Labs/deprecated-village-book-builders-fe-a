@@ -8,17 +8,10 @@ function RenderHomePage(props) {
       <h1>Hi,Welcome to Labs Basic SPA</h1>
       <div>
         <p>
-          This is an example of a common example of how we'd like for you to
-          approach components.
+          <Link to="/headmaster/student/">View Students</Link>
         </p>
         <p>
-          <Link to="/profile-list">Profiles Example</Link>
-        </p>
-        <p>
-          <Link to="/example-list">Example List of Items</Link>
-        </p>
-        <p>
-          <Link to="/datavis">Data Visualizations Example</Link>
+          <Link to="/headmaster/student/add">Add Student</Link>
         </p>
       </div>
     </div>
