@@ -23,7 +23,6 @@ function Library() {
   }, []);
   return (
     <Row>
-      {console.log(user.userInfo)}
       <Col span={20} offset={2}>
         <h1>Libraries</h1>
         {error ? (
