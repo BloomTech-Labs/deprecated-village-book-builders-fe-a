@@ -18,9 +18,14 @@ import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { LoadingComponent } from './components/common';
 import Nav from './components/common/Nav';
-import { VillageDashboard } from './components/pages/Dashboard';
-import { EditHeadmasterProfile } from './components/pages/HeadmasterProfile/index';
 
+import Library from './components/pages/Admin/Library';
+import EditLibrary from './components/pages/Admin/EditLibrary';
+import { VillageDashboard } from './components/pages/Dashboard';
+import AddLibrary from './components/pages/Admin/AddLibrary';
+import Village from './components/pages/Village/Village';
+import EditVillage from './components/pages/Village/EditVillage';
+import { EditHeadmasterProfile } from './components/pages/HeadmasterProfile';
 ReactDOM.render(
   <Router>
     <React.StrictMode>
@@ -46,20 +51,23 @@ function App() {
       <Nav />
       <Switch>
         <Route path="/login" component={LoginPage} />
-
+        <Route path="edit-headmaster" component={EditHeadmasterProfile} />
         <Route path="/landing" component={LandingPage} />
+        <Route path="/admin/library" component={Library} exact />
+        <Route path="/admin/library/add" component={AddLibrary} exact />
+        <Route path="/admin/library/:id" component={EditLibrary} exact />
+        <Route path="/village" component={Village} exact />
+        <Route path="/village/:id" component={EditVillage} exact />
 
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <Route
           path="/"
           exact
-          component={() => <HomePage LoadingComponent={LoadingComponent} />}
+          component={() => <LoginPage LoadingComponent={LoadingComponent} />}
         />
         <Route path="/edit-headmaster" component={EditHeadmasterProfile} />
         <Route path="/dashboard" component={VillageDashboard} />
-        <Route path="/example-list" component={ExampleListPage} />
-        <Route path="/profile-list" component={ProfileListPage} />
-        <Route path="/datavis" component={ExampleDataViz} />
+
         <Route component={NotFoundPage} />
       </Switch>
     </>
