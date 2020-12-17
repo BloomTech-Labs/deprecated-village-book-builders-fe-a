@@ -30,6 +30,7 @@ import { UserProvider } from './state/UserContext';
 
 import Logout from './components/pages/Logout/Logout';
 import RenderVillageDashboard from './components/pages/Dashboard/RenderVillageDashboard';
+import EditStudent from './components/pages/Headmaster/EditStudent';
 ReactDOM.render(
   <Router>
     <React.StrictMode>
@@ -73,6 +74,11 @@ function App() {
             path="/headmaster/student/"
             exact
             component={ViewStudents}
+          />
+          <PrivateRoute
+            path="/headmaster/student/:id"
+            exact
+            component={EditStudent}
           />
           <PrivateRoute
             path="/headmaster/student/add"

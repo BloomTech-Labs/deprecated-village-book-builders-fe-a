@@ -13,14 +13,31 @@ function ViewStudents() {
   }, []);
   const addStudentClick = () => history.push('/headmaster/student/add');
   return (
-    <div>
+    <div style={{ textAlign: 'center' }}>
       <h1>Student List</h1>
-      <Button type="primary" htmlType="submit" onClick={addStudentClick}>
-        Add Student
-      </Button>
+      <Row justify="end">
+        <Button type="primary" htmlType="submit" onClick={addStudentClick}>
+          Add Student
+        </Button>
+      </Row>
       <Row>
         <Col span={20} offset={2}>
-          <Table dataSource={students}>
+          <Table
+            dataSource={students}
+            onRow={(record, rowIndex) => {
+              return {
+                onClick: event => {
+                  history.push(`/headmaster/student/${record.id}`);
+                },
+                onMouseEnter: event => {
+                  document.body.style.cursor = 'pointer';
+                },
+                onMouseLeave: event => {
+                  document.body.style.cursor = 'default';
+                },
+              };
+            }}
+          >
             <Column title="First Name" dataIndex="firstName" key="firstName" />
             <Column title="Last Name" dataIndex="lastName" key="lastName" />
             <Column title="Email" dataIndex="studentEmail" key="studentEmail" />

@@ -13,7 +13,6 @@ function Village() {
 
   return (
     <div>
-      {console.log(village)}
       <Row>
         <Col span={12} offset={6}>
           <h1>Village Info</h1>
