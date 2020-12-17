@@ -29,9 +29,9 @@ function EditStudent() {
   const onFinish = values => {
     setLoading(true);
     axios
-      .put(`https://54.158.134.245/api/students/${id}`, {
+      .patch(`https://54.158.134.245/api/students/${id}`, {
         firstName: values.firstName,
-        lastName: values.description,
+        lastName: values.lastName,
         studentEmail: values.studentEmail,
       })
       .then(() => {

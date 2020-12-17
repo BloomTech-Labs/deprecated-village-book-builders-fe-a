@@ -7,7 +7,7 @@ function ViewStudents() {
   const [students, setStudents] = useState([]);
   const history = useHistory();
   useEffect(() => {
-    axios.get('http://54.158.134.245/api/students').then(result => {
+    axios.get('https://54.158.134.245/api/students').then(result => {
       setStudents(result.data);
     });
   }, []);
