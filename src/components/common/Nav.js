@@ -18,7 +18,11 @@ function Nav() {
     <Affix offsetTop="0">
       <StyledNav mode="horizontal">
         <Menu.Item key="mail" icon={<HomeFilled />}>
-          <Link to="/">Home</Link>
+          {user.userInfo.role === 'headmaster' ? (
+            <Link to="/dashboard">Home</Link>
+          ) : (
+            <Link to="/admin/library">Home</Link>
+          )}
         </Menu.Item>
         {/* <SubMenu key="SubMenu" icon={<SettingOutlined />} title="Profiles">
           <Menu.ItemGroup>
