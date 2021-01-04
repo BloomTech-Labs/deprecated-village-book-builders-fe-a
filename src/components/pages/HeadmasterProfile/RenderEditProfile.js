@@ -173,7 +173,12 @@ function RenderEditProfile() {
           <Input />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit" loading={loading}>
+          <Button
+            shape="round"
+            type="primary"
+            htmlType="submit"
+            loading={loading}
+          >
             Update
           </Button>
         </Form.Item>

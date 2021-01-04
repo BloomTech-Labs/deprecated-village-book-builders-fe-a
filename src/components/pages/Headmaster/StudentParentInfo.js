@@ -29,7 +29,7 @@ function StudentParentInfo({ error }) {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button shape="round" type="primary" htmlType="submit">
           Submit
         </Button>
       </Form.Item>

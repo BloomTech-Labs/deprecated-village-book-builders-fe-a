@@ -67,6 +67,7 @@ function EditStudent() {
         <h1>Edit Student Info</h1>
         <Row justify="end">
           <Button
+            shape="round"
             type="primary"
             htmlType="submit"
             loading={loading}
@@ -117,7 +118,12 @@ function EditStudent() {
           </Form.Item>
 
           <Form.Item>
-            <Button type="primary" htmlType="submit" loading={loading}>
+            <Button
+              shape="round"
+              type="primary"
+              htmlType="submit"
+              loading={loading}
+            >
               Update Student
             </Button>
           </Form.Item>

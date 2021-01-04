@@ -66,6 +66,7 @@ function Library() {
         )}
         <Button
           type="primary"
+          shape="round"
           onClick={() => history.push('/admin/library/add')}
         >
           Add Library
