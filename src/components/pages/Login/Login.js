@@ -77,7 +77,12 @@ function Login() {
           </Form.Item>
 
           <Form.Item>
-            <Button type="primary" htmlType="submit" loading={loading}>
+            <Button
+              shape="round"
+              type="primary"
+              htmlType="submit"
+              loading={loading}
+            >
               Login
             </Button>
           </Form.Item>

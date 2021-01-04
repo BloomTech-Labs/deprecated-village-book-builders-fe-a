@@ -16,7 +16,12 @@ function ViewStudents() {
     <div style={{ textAlign: 'center' }}>
       <h1>Student List</h1>
       <Row justify="end">
-        <Button type="primary" htmlType="submit" onClick={addStudentClick}>
+        <Button
+          shape="round"
+          type="primary"
+          htmlType="submit"
+          onClick={addStudentClick}
+        >
           Add Student
         </Button>
       </Row>

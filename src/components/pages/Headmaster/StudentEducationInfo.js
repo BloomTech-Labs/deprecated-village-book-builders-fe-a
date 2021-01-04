@@ -55,7 +55,7 @@ function StudentEducationInfo() {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button shape="round" type="primary" htmlType="submit">
           Next
         </Button>
       </Form.Item>
