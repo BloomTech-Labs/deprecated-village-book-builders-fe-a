@@ -22,16 +22,8 @@ function Nav() {
           {user.userInfo.role === 'admin' && (
             <Link to="/admin/library">Home</Link>
           )}
+          {user.userInfo.role === null && <Link to="/">Home</Link>}
         </Menu.Item>
-        {/* <SubMenu key="SubMenu" icon={<SettingOutlined />} title="Profiles">
-          <Menu.ItemGroup>
-            <Menu.Item key="village">Village Profile</Menu.Item>
-            <Menu.Item key="library">Library Profile</Menu.Item>
-            <Menu.Item key="school">School Profile</Menu.Item>
-            <Menu.Item key="students">Studen Profiles</Menu.Item>
-            <Menu.Item key="user">Your Profile</Menu.Item>
-          </Menu.ItemGroup>
-        </SubMenu> */}
         <Menu.Item>
           {user.userInfo.role ? (
             <Link to="/logout">Logout</Link>
