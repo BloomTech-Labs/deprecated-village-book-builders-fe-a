@@ -150,7 +150,12 @@ function EditVillage() {
           </Form.Item>
 
           <Form.Item>
-            <Button type="primary" htmlType="submit" loading={loading}>
+            <Button
+              shape="round"
+              type="primary"
+              htmlType="submit"
+              loading={loading}
+            >
               Update Village
             </Button>
           </Form.Item>

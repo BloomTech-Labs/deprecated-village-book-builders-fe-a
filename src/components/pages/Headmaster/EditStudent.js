@@ -29,9 +29,9 @@ function EditStudent() {
   const onFinish = values => {
     setLoading(true);
     axios
-      .put(`https://54.158.134.245/api/students/${id}`, {
+      .patch(`https://54.158.134.245/api/students/${id}`, {
         firstName: values.firstName,
-        lastName: values.description,
+        lastName: values.lastName,
         studentEmail: values.studentEmail,
       })
       .then(() => {
@@ -67,6 +67,7 @@ function EditStudent() {
         <h1>Edit Student Info</h1>
         <Row justify="end">
           <Button
+            shape="round"
             type="primary"
             htmlType="submit"
             loading={loading}
@@ -117,7 +118,12 @@ function EditStudent() {
           </Form.Item>
 
           <Form.Item>
-            <Button type="primary" htmlType="submit" loading={loading}>
+            <Button
+              shape="round"
+              type="primary"
+              htmlType="submit"
+              loading={loading}
+            >
               Update Student
             </Button>
           </Form.Item>

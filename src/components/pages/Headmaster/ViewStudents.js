@@ -7,7 +7,7 @@ function ViewStudents() {
   const [students, setStudents] = useState([]);
   const history = useHistory();
   useEffect(() => {
-    axios.get('http://54.158.134.245/api/students').then(result => {
+    axios.get('https://54.158.134.245/api/students').then(result => {
       setStudents(result.data);
     });
   }, []);
@@ -16,7 +16,12 @@ function ViewStudents() {
     <div style={{ textAlign: 'center' }}>
       <h1>Student List</h1>
       <Row justify="end">
-        <Button type="primary" htmlType="submit" onClick={addStudentClick}>
+        <Button
+          shape="round"
+          type="primary"
+          htmlType="submit"
+          onClick={addStudentClick}
+        >
           Add Student
         </Button>
       </Row>

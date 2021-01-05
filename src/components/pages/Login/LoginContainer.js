@@ -9,7 +9,9 @@ const LoginContainer = () => {
   return (
     <div>
       <h1>Login Page</h1>
-      <Button onClick={handleClick}>Go To Dashboard</Button>
+      <Button shape="round" onClick={handleClick}>
+        Go To Dashboard
+      </Button>
     </div>
   );
 };

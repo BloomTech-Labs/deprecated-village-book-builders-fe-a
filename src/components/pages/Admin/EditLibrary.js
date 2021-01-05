@@ -70,6 +70,7 @@ function EditLibrary() {
         <Row justify="end">
           <Button
             type="primary"
+            shape="round"
             htmlType="submit"
             loading={loading}
             onClick={handleDelete}
@@ -127,7 +128,12 @@ function EditLibrary() {
           </Form.Item>
 
           <Form.Item>
-            <Button type="primary" htmlType="submit" loading={loading}>
+            <Button
+              shape="round"
+              type="primary"
+              htmlType="submit"
+              loading={loading}
+            >
               Update Library
             </Button>
           </Form.Item>

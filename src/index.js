@@ -81,14 +81,14 @@ function App() {
             component={ViewStudents}
           />
           <PrivateRoute
-            path="/headmaster/student/:id"
-            exact
-            component={EditStudent}
-          />
-          <PrivateRoute
             path="/headmaster/student/add"
             exact
             component={AddStudent}
+          />
+          <PrivateRoute
+            path="/headmaster/student/:id"
+            exact
+            component={EditStudent}
           />
 
           <PrivateRoute path="/dashboard" component={VillageDashboard} />
