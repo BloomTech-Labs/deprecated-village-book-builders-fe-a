@@ -22,7 +22,7 @@ function Nav() {
           {user.userInfo.role === 'admin' && (
             <Link to="/admin/library">Home</Link>
           )}
-          {user.userInfo.role === '' && <Link to="/">Home</Link>}
+          {!user.userInfo.role && <Link to="/">Home</Link>}
         </Menu.Item>
         <Menu.Item>
           {user.userInfo.role ? (

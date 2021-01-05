@@ -8,9 +8,9 @@ export function useUser() {
 
 export function UserProvider({ children }) {
   const [userInfo, setUserInfo] = useState({
-    username: '',
-    role: '',
-    id: '',
+    username: localStorage.getItem('username'),
+    role: localStorage.getItem('role'),
+    id: localStorage.getItem('id'),
   });
 
   useEffect(() => {
