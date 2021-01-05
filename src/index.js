@@ -10,9 +10,11 @@ import {
 import 'antd/dist/antd.less';
 
 import { NotFoundPage } from './components/pages/NotFound';
-import { LandingPage } from './components/pages/Landing';
+
 import { LoadingComponent } from './components/common';
 import Nav from './components/common/Nav';
+import AddStudent from './components/pages/Headmaster/AddStudent';
+import ViewStudents from './components/pages/Headmaster/ViewStudents';
 
 import Library from './components/pages/Admin/Library';
 import EditLibrary from './components/pages/Admin/EditLibrary';
@@ -25,8 +27,10 @@ import Village from './components/pages/Village/Village';
 import EditVillage from './components/pages/Village/EditVillage';
 import { EditHeadmasterProfile } from './components/pages/HeadmasterProfile';
 import { UserProvider } from './state/UserContext';
-import RenderHomePage from './components/pages/Home/RenderHomePage';
+
 import Logout from './components/pages/Logout/Logout';
+import RenderVillageDashboard from './components/pages/Dashboard/RenderVillageDashboard';
+import EditStudent from './components/pages/Headmaster/EditStudent';
 ReactDOM.render(
   <Router>
     <React.StrictMode>
@@ -46,8 +50,6 @@ function App() {
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Logout} />
-
-          <Route path="/landing" component={LandingPage} />
 
           <PrivateRoute path="/admin/library" component={Library} exact />
           <PrivateRoute
@@ -73,7 +75,23 @@ function App() {
             exact
             component={() => <Login LoadingComponent={LoadingComponent} />}
           />
-          <Route path="/dashboard" component={VillageDashboard} />
+          <PrivateRoute
+            path="/headmaster/student/"
+            exact
+            component={ViewStudents}
+          />
+          <PrivateRoute
+            path="/headmaster/student/:id"
+            exact
+            component={EditStudent}
+          />
+          <PrivateRoute
+            path="/headmaster/student/add"
+            exact
+            component={AddStudent}
+          />
+
+          <PrivateRoute path="/dashboard" component={VillageDashboard} />
           <Route component={NotFoundPage} />
         </Switch>
       </UserProvider>

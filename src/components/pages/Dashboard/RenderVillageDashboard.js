@@ -12,30 +12,37 @@ function RenderVillageDashboard() {
     // >
     <Row>
       <Col xs={{ span: 12, offset: 6 }}>
-        <h1>Headmaster Dashboard</h1>
+        <br></br>
+        <h1 style={{ textAlign: 'center' }}>Headmaster Dashboard</h1>
         {/* 
         <Space>{''} </Space>
         <Button type="primary" href="#" block>
           Update School
         </Button>
         <Space>{''} </Space>
-        <Button type="primary" href="#" block>
-          Mentees
-        </Button>
+
         <Space>{''} </Space>
         <Button type="primary" href="" block>
           Mentors
         </Button> */}
-        <Space>{''} </Space>
-        <Button type="primary" href="/admin/library" block>
+        <br></br>
+        <Button type="primary" shape="round" href="/admin/library" block>
           School Library
         </Button>
-        <Space>{''} </Space>
-        <Button type="primary" href="/village" block>
+        <br></br>
+        <br></br>
+        <Button type="primary" shape="round" href="/village" block>
           Village Info
         </Button>
-        <Button type="primary" href="/edit-headmaster" block>
+        <br></br>
+        <br></br>
+        <Button type="primary" shape="round" href="/edit-headmaster" block>
           Update Profile
+        </Button>
+        <br></br>
+        <br></br>
+        <Button type="primary" shape="round" href="/headmaster/student/" block>
+          Mentees / Students
         </Button>
       </Col>
     </Row>
