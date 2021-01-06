@@ -31,7 +31,7 @@ function ViewMentors() {
             onRow={(record, rowIndex) => {
               return {
                 onClick: event => {
-                  history.push(`/headmaster/student/${record.id}`);
+                  history.push(`/headmaster/mentor/${record.id}`);
                 },
                 onMouseEnter: event => {
                   document.body.style.cursor = 'pointer';
