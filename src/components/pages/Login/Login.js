@@ -1,15 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Row, Col, Form, Input, Button, Alert } from 'antd';
 import axios from 'axios';
 import Password from 'antd/lib/input/Password';
 import { useUser } from '../../../state/UserContext';
+
 function Login() {
   const user = useUser();
   let history = useHistory();
   const [form] = Form.useForm();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (user.userInfo.role === 'admin') {
+      history.push('/admin/library');
+    } else if (user.userInfo.role === 'headmaster') {
+      history.push('/dashboard');
+    }
+  }, []);
 
   const onFinish = values => {
     setLoading(true);
