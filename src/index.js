@@ -32,6 +32,7 @@ import Logout from './components/pages/Logout/Logout';
 import RenderVillageDashboard from './components/pages/Dashboard/RenderVillageDashboard';
 import EditStudent from './components/pages/Headmaster/EditStudent';
 import AddMentor from './components/pages/Headmaster/AddMentor';
+import ViewMentors from './components/pages/Headmaster/ViewMentors';
 ReactDOM.render(
   <Router>
     <React.StrictMode>
@@ -93,6 +94,11 @@ function App() {
           />
           <PrivateRoute
             path="/headmaster/mentor/"
+            exact
+            component={ViewMentors}
+          />
+          <PrivateRoute
+            path="/headmaster/mentor/add"
             exact
             component={AddMentor}
           />

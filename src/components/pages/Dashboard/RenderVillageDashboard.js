@@ -5,7 +5,7 @@ function RenderVillageDashboard() {
   return (
     <Row gutter={[16, 24]}>
       <Col xs={{ span: 12, offset: 6 }}>
-        <h1>Headmaster Dashboard</h1>
+        <h1 style={{ textAlign: 'center' }}>Headmaster Dashboard</h1>
         <Button type="primary" shape="round" href="/admin/library" block>
           School Library
         </Button>
