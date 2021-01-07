@@ -13,11 +13,19 @@ function ViewStudents() {
   }, []);
   const addStudentClick = () => history.push('/headmaster/student/add');
   return (
-    <div>
-      <h1 style={{ textAlign: 'center' }}>Student List</h1>
+    <div style={{ textAlign: 'center' }}>
+      <h1>Student List</h1>
 
       <Row>
         <Col span={20} offset={2}>
+          <Button
+            shape="round"
+            type="primary"
+            htmlType="submit"
+            onClick={addStudentClick}
+          >
+            Add Student
+          </Button>
           <Table
             dataSource={students}
             onRow={(record, rowIndex) => {
