@@ -99,14 +99,14 @@ function App() {
             component={ViewMentors}
           />
           <PrivateRoute
-            path="/headmaster/mentor/:id"
-            exact
-            component={EditMentor}
-          />
-          <PrivateRoute
             path="/headmaster/mentor/add"
             exact
             component={AddMentor}
+          />
+          <PrivateRoute
+            path="/headmaster/mentor/:id"
+            exact
+            component={EditMentor}
           />
 
           <PrivateRoute path="/dashboard" component={VillageDashboard} />
