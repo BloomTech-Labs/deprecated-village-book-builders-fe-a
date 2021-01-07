@@ -61,8 +61,17 @@ function RenderVillageDashboard() {
           Mentees / Students
         </Button>
       </Col>
-      <Col xs={{ span: 12, offset: 6 }}>
-        <Button type="primary" shape="round" href="/headmaster/mentor/" block>
+      <Col xs={{ span: 12, offset: 6 }} style={{ textAlign: 'center' }}>
+        <Button
+          type="primary"
+          shape="round"
+          href="/headmaster/mentor/"
+          block
+          style={{
+            height: '30px',
+            width: '200px',
+          }}
+        >
           Mentor
         </Button>
       </Col>
