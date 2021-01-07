@@ -23,7 +23,7 @@ function Login() {
   const onFinish = values => {
     setLoading(true);
     axios
-      .get(`https://54.158.134.245/api/auth/?username=${values.username}`, {})
+      .get(`https://54.158.134.245/api/auth/?username=${values.username}`)
       .then(res => {
         setLoading(false);
         user.setUserInfo({
