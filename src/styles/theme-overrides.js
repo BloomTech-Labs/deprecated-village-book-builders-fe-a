@@ -1,6 +1,6 @@
 module.exports = {
   '@primary-color': '#549BEA',
-  '@link-color': ' #ec3944',
+  '@link-color': '#FF914D',
   '@background': '#FFFFF6',
   '@success-color': '#52c41a',
   '@warning-color': '#faad14',

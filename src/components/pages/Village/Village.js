@@ -14,7 +14,7 @@ function Village() {
   return (
     <div>
       <Row>
-        <Col span={12} offset={6}>
+        <Col span={12} offset={6} style={{ textAlign: 'center' }}>
           <h1>Village Info</h1>
         </Col>
       </Row>
@@ -23,7 +23,7 @@ function Village() {
         return (
           <Row>
             <Col span={12} offset={6} id={v.id}>
-              <h2>
+              <h2 style={{ textAlign: 'center' }}>
                 <a href={`/village/${v.id}`}>Village: {v.id}</a>
               </h2>
 

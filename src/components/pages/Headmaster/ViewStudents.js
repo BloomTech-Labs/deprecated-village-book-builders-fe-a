@@ -13,18 +13,9 @@ function ViewStudents() {
   }, []);
   const addStudentClick = () => history.push('/headmaster/student/add');
   return (
-    <div style={{ textAlign: 'center' }}>
-      <h1>Student List</h1>
-      <Row justify="end">
-        <Button
-          shape="round"
-          type="primary"
-          htmlType="submit"
-          onClick={addStudentClick}
-        >
-          Add Student
-        </Button>
-      </Row>
+    <div>
+      <h1 style={{ textAlign: 'center' }}>Student List</h1>
+
       <Row>
         <Col span={20} offset={2}>
           <Table
@@ -47,6 +38,14 @@ function ViewStudents() {
             <Column title="Last Name" dataIndex="lastName" key="lastName" />
             <Column title="Email" dataIndex="studentEmail" key="studentEmail" />
           </Table>
+          <Button
+            shape="round"
+            type="primary"
+            htmlType="submit"
+            onClick={addStudentClick}
+          >
+            Add Student
+          </Button>
         </Col>
       </Row>
     </div>
