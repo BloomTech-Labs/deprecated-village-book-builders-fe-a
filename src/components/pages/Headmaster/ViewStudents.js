@@ -18,14 +18,6 @@ function ViewStudents() {
 
       <Row>
         <Col span={20} offset={2}>
-          <Button
-            shape="round"
-            type="primary"
-            htmlType="submit"
-            onClick={addStudentClick}
-          >
-            Add Student
-          </Button>
           <Table
             dataSource={students}
             onRow={(record, rowIndex) => {
