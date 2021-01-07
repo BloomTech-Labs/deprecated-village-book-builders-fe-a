@@ -14,7 +14,14 @@ function Nav() {
 
   return (
     <Affix offsetTop="0">
-      <StyledNav mode="horizontal">
+      <StyledNav
+        mode="horizontal"
+        style={{
+          justifyContent: 'center',
+          display: 'flex',
+          position: 'relative',
+        }}
+      >
         <Menu.Item key="mail" icon={<HomeFilled />}>
           {user.userInfo.role === 'headmaster' && (
             <Link to="/dashboard">Home</Link>

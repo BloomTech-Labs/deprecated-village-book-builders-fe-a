@@ -14,7 +14,7 @@ function Village() {
   return (
     <div>
       <Row>
-        <Col span={12} offset={6}>
+        <Col span={12} offset={6} style={{ textAlign: 'center' }}>
           <h1>Village Info</h1>
         </Col>
       </Row>
